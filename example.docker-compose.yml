@@ -1,0 +1,48 @@
+name: aapt-wellness
+services:
+  frontend:
+    build:
+      context: frontend
+    restart: unless-stopped
+    environment:
+      - ORIGIN=http://localhost
+    ports:
+      - 3000:3000
+    networks:
+      - frontend
+    depends_on:
+      - backend
+  backend:
+    build:
+      context: backend
+    restart: unless-stopped
+    environment:
+      - DB_USER=[USERNAME]
+      - DB_PASSWORD=[PASSWORD]
+      - DB_HOST=database
+      - DB_NAME=[NAME]
+    ports:
+      - 5000:5000
+    networks:
+      - frontend
+      - database
+    depends_on:
+      - database
+  database:
+    image: postgres:16.1-alpine
+    restart: unless-stopped
+    environment:
+      - POSTGRES_USER=[USERNAME]
+      - POSTGRES_PASSWORD=[PASSWORD]
+    ports:
+      - 5432:5432
+    volumes:
+      - database:/var/lib/postgresql/data
+    networks:
+      - database
+networks:
+  frontend: {}
+  database: {}
+volumes:
+  database:
+    driver: local

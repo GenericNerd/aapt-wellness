@@ -1,0 +1,21 @@
+on: [push]
+name: Rust (Clippy)
+description: Runs clippy on the backend
+jobs:
+  clippy:
+    runs-on: ubuntu-latest
+    permissions: write-all
+    defaults:
+      run:
+        working-directory: ./backend
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Use Rust stable
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          components: clippy
+      - name: Run clippy
+        uses: giraffate/clippy-action@v1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
