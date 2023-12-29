@@ -15,9 +15,9 @@
 <div class="background absolute left-0 top-0 h-screen w-screen">
 	<div class="background-colors h-full w-full"></div>
 </div>
-<div class="absolute left-0 top-0 h-screen w-screen">
+<div class="absolute left-0 top-0 h-screen w-screen backdrop-blur-[2px]">
 	<div class="flex h-full w-full flex-col items-center justify-center">
-		<img src="/img/logo.png" class="h-28 w-32" alt="AAPT Wellness Logo" />
+		<img src="/img/logo.png" class="h-32 w-32" alt="AAPT Wellness Logo" />
 		<h1 class="text-center text-white">AAPT Wellness</h1>
 		<form
 			method="POST"
