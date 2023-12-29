@@ -1,0 +1,8 @@
+.background {
+	@apply bg-[url('/img/hero.jpg')] bg-cover bg-center;
+}
+
+.background-colors {
+	@apply opacity-75;
+	background: linear-gradient(-75deg, #b88100 50%, #101010 50%);
+}

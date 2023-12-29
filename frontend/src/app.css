@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+button,
+span,
+a,
+li,
+label,
+input,
+select,
+textarea {
+	font-family: 'Lato', sans-serif;
+}
+
+input {
+	@apply rounded-md border border-gray-300 px-4 py-2;
+}
+
+select,
+textarea {
+	@apply rounded-md border border-gray-300 bg-transparent px-4 py-2;
+}
+
+p,
+li {
+	@apply text-lg;
+}
+
+h1 {
+	@apply text-5xl lg:text-7xl;
+}
+
+h2 {
+	@apply text-3xl lg:text-5xl;
+}
+
+h3 {
+	@apply text-2xl font-bold lg:text-3xl;
+}
+
+h4 {
+	@apply text-xl lg:text-2xl;
+}
+
+a {
+	text-decoration: none;
+	@apply text-blue-400 transition-colors;
+}
+
+a:hover {
+	@apply text-blue-600;
+}
