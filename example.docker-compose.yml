@@ -21,6 +21,7 @@ services:
       - DB_PASSWORD=[PASSWORD]
       - DB_HOST=database
       - DB_NAME=[NAME]
+      - OPENSSL_KEY=[RANDOM_KEY]
     ports:
       - 5000:5000
     networks:
