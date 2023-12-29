@@ -1,5 +1,6 @@
 import { fail } from '@sveltejs/kit';
 import type { Actions } from './$types';
+import { dev } from '$app/environment';
 
 export const actions = {
 	default: async ({ request }) => {
@@ -37,7 +38,30 @@ export const actions = {
 			});
 		}
 
-		// TODO: Send request to API
+		if (!dev) {
+			try {
+				const res = await fetch('http://backend:5000/api/registerinterest', {
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json'
+					},
+					body: JSON.stringify({ name, email })
+				});
+				if (res.status !== 204) {
+					return fail(500, {
+						success: false,
+						message: 'Something went wrong, please try again later',
+						badData: []
+					});
+				}
+			} catch (err) {
+				return fail(500, {
+					success: false,
+					message: `There was a server error, the error was ${err}`,
+					badData: []
+				});
+			}
+		}
 
 		return { success: true, message: 'Your interest has been registered, thank you!', badData };
 	}
