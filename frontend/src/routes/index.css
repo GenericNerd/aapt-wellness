@@ -4,5 +4,5 @@
 
 .background-colors {
 	@apply opacity-75;
-	background: linear-gradient(-75deg, #b88100 50%, #101010 50%);
+	background: linear-gradient(-75deg, #101010 50%, #b88100 50%);
 }
